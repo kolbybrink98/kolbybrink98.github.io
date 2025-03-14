@@ -111,112 +111,6 @@
             margin: 0 auto;
         }
         
-        .dashboard-container {
-            background-color: var(--white);
-            border-radius: 10px;
-            margin-bottom: 50px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-        
-        .dashboard-header {
-            padding: 30px;
-            background-color: #f5f5ff;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .dashboard-title {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .dashboard-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .tag {
-            background-color: #f0f0f0;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-        
-        .dashboard-content {
-            padding: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .dashboard-image {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f8f9fa;
-        }
-        
-        .dashboard-image img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            border-radius: 5px;
-            box-shadow: var(--shadow);
-        }
-        
-        .dashboard-description {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .description-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        .dashboard-text {
-            margin-bottom: 20px;
-        }
-        
-        .features-list {
-            margin-bottom: 20px;
-        }
-        
-        .features-list li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .features-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-        
-        .insights-box {
-            background-color: #f5f5ff;
-            border-left: 4px solid var(--primary-color);
-            padding: 20px;
-            border-radius: 0 5px 5px 0;
-            margin-top: 20px;
-        }
-        
-        .insights-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        
         footer {
             background-color: #333;
             color: var(--white);
@@ -298,30 +192,6 @@
             font-size: 14px;
             color: #aaa;
         }
-        
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .dashboard-content {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .page-title {
-                padding: 40px 0 20px;
-            }
-            
-            .page-title h1 {
-                font-size: 30px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -353,35 +223,35 @@
     <section>
         <div class="container">
             <!-- Dashboard 1 -->
-            <div class="dashboard-container">
-                <div class="dashboard-header">
-                    <h2 class="dashboard-title">Dermatology Practice Performance Dashboard</h2>
-                    <div class="dashboard-tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Healthcare Analytics</span>
-                        <span class="tag">Business Intelligence</span>
-                        <span class="tag">Financial Analysis</span>
+            <div style="background-color: white; border-radius: 10px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                <div style="padding: 30px; background-color: #f5f5ff; border-bottom: 1px solid #eee;">
+                    <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">Dermatology Practice Performance Dashboard</h2>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Power BI</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Healthcare Analytics</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Business Intelligence</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Financial Analysis</span>
                     </div>
                 </div>
-                <div class="dashboard-content">
-                    <div class="dashboard-image">
-                        <img src="https://dl.dropbox.com/scl/fi/seqxed7zqxdfn7xnklwxs/dermatology-dashboard-picture.png?raw=1" alt="Dermatology Dashboard">
+                <div style="padding: 30px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5;">
+                        <img src="images/dermatology-dashboard.png" alt="Dermatology Dashboard" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                     </div>
-                    <div class="dashboard-description">
-                        <h3 class="description-title">Project Overview</h3>
-                        <p class="dashboard-text">This comprehensive dashboard provides a complete view of a dermatology practice's performance metrics, allowing providers and administrators to track key indicators and identify areas for improvement.</p>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Project Overview</h3>
+                        <p style="margin-bottom: 20px;">This comprehensive dashboard provides a complete view of a dermatology practice's performance metrics, allowing providers and administrators to track key indicators and identify areas for improvement.</p>
                         
-                        <h3 class="description-title">Dashboard Features</h3>
-                        <ul class="features-list">
-                            <li>Revenue tracking with month-over-month comparison</li>
-                            <li>Provider productivity metrics with benchmarking</li>
-                            <li>Patient appointment analysis including no-show rates</li>
-                            <li>Procedure mix and profitability breakdown</li>
-                            <li>Insurance payer analysis and reimbursement tracking</li>
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Dashboard Features</h3>
+                        <ul style="margin-bottom: 20px; list-style-position: inside;">
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Revenue tracking with month-over-month comparison</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Provider productivity metrics with benchmarking</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Patient appointment analysis including no-show rates</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Procedure mix and profitability breakdown</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Insurance payer analysis and reimbursement tracking</li>
                         </ul>
                         
-                        <div class="insights-box">
-                            <h4 class="insights-title">Key Insights</h4>
+                        <div style="background-color: #f5f5ff; border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 5px 5px 0; margin-top: 20px;">
+                            <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Key Insights</h4>
                             <p>Through this dashboard, the practice identified specific procedure types with higher profitability and optimized provider scheduling to increase overall revenue by 15% while reducing administrative costs.</p>
                         </div>
                     </div>
@@ -389,35 +259,35 @@
             </div>
             
             <!-- Dashboard 2 -->
-            <div class="dashboard-container">
-                <div class="dashboard-header">
-                    <h2 class="dashboard-title">Financial Performance Analysis Dashboard</h2>
-                    <div class="dashboard-tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Financial Analytics</span>
-                        <span class="tag">Forecasting</span>
-                        <span class="tag">Executive Dashboard</span>
+            <div style="background-color: white; border-radius: 10px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                <div style="padding: 30px; background-color: #f5f5ff; border-bottom: 1px solid #eee;">
+                    <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">Financial Performance Analysis Dashboard</h2>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Power BI</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Financial Analytics</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Forecasting</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Executive Dashboard</span>
                     </div>
                 </div>
-                <div class="dashboard-content">
-                    <div class="dashboard-image">
-                        <img src="https://dl.dropbox.com/scl/fi/wj54l7u1woai7srj51zuh/financial-dashboard-picture.png?raw=1" alt="Financial Dashboard">
+                <div style="padding: 30px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5;">
+                        <img src="images/financial-dashboard.png" alt="Financial Dashboard" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                     </div>
-                    <div class="dashboard-description">
-                        <h3 class="description-title">Project Overview</h3>
-                        <p class="dashboard-text">This executive-level financial dashboard integrates data from multiple sources to provide a comprehensive view of organizational financial health, complete with predictive analytics and trend forecasting.</p>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Project Overview</h3>
+                        <p style="margin-bottom: 20px;">This executive-level financial dashboard integrates data from multiple sources to provide a comprehensive view of organizational financial health, complete with predictive analytics and trend forecasting.</p>
                         
-                        <h3 class="description-title">Dashboard Features</h3>
-                        <ul class="features-list">
-                            <li>Real-time P&L statement with drill-down capabilities</li>
-                            <li>Cash flow analysis with 6-month rolling forecast</li>
-                            <li>Budget variance analysis with automated alerts</li>
-                            <li>Revenue streams and expense category breakdown</li>
-                            <li>Custom KPI tracking with historical trending</li>
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Dashboard Features</h3>
+                        <ul style="margin-bottom: 20px; list-style-position: inside;">
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Real-time P&L statement with drill-down capabilities</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Cash flow analysis with 6-month rolling forecast</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Budget variance analysis with automated alerts</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Revenue streams and expense category breakdown</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Custom KPI tracking with historical trending</li>
                         </ul>
                         
-                        <div class="insights-box">
-                            <h4 class="insights-title">Key Insights</h4>
+                        <div style="background-color: #f5f5ff; border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 5px 5px 0; margin-top: 20px;">
+                            <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Key Insights</h4>
                             <p>The predictive modeling within this dashboard enabled leadership to identify potential revenue shortfalls 3 months in advance, allowing for proactive cost management strategies that preserved quarterly profit targets.</p>
                         </div>
                     </div>
@@ -425,35 +295,34 @@
             </div>
             
             <!-- Dashboard 3 -->
-            <div class="dashboard-container">
-                <div class="dashboard-header">
-                    <h2 class="dashboard-title">U.S. Health Metrics Dashboard</h2>
-                    <div class="dashboard-tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Public Health</span>
-                        <span class="tag">Geographic Analysis</span>
-                        <span class="tag">Trend Analysis</span>
+            <div style="background-color: white; border-radius: 10px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                <div style="padding: 30px; background-color: #f5f5ff; border-bottom: 1px solid #eee;">
+                    <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">U.S. Health Metrics Dashboard</h2>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Power BI</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Public Health</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Geographic Analysis</span>
+                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Trend Analysis</span>
                     </div>
                 </div>
-                <div class="dashboard-content">
-                    <div class="dashboard-image">
-                        <img src="https://dl.dropbox.com/scl/fi/mdpc28ioh0t7zh83stdfy/health-dashboard-picture.png?raw=1" alt="Health Dashboard">
+                <div style="padding: 30px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5;">
+                        <img src="images/health-dashboard.png" alt="Health Dashboard" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                     </div>
-                    <div class="dashboard-description">
-                        <h3 class="description-title">Project Overview</h3>
-                        <p class="dashboard-text">This interactive dashboard visualizes obesity and heart disease trends across the United States, allowing for detailed geographic and demographic analysis of these critical public health concerns.</p>
+                    <div style="flex: 1; min-width: 300px;">
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Project Overview</h3>
+                        <p style="margin-bottom: 20px;">This interactive dashboard visualizes obesity and heart disease trends across the United States, allowing for detailed geographic and demographic analysis of these critical public health concerns.</p>
                         
-                        <h3 class="description-title">Dashboard Features</h3>
-                        <ul class="features-list">
-                            <li>State-by-state health metrics comparison</li>
-                            <li>County-level data visualization with color-coded mapping</li>
-                            <li>Demographic breakdowns (age, gender, income level)</li>
-                            <li>Correlation analysis between obesity and heart disease rates</li>
-                            <li>10-year trend analysis with interactive timeline</li>
+                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Dashboard Features</h3>
+                        <ul style="margin-bottom: 20px; list-style-position: inside;">
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">State-by-state health metrics comparison</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">County-level data visualization with color-coded mapping</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Demographic breakdowns (age, gender, income level)</li>
+                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Correlation analysis between obesity and heart disease rates</li>
                         </ul>
                         
-                        <div class="insights-box">
-                            <h4 class="insights-title">Key Insights</h4>
+                        <div style="background-color: #f5f5ff; border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 5px 5px 0; margin-top: 20px;">
+                            <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Key Insights</h4>
                             <p>Analysis revealed strong correlations between socioeconomic factors and health outcomes, identifying specific regions where targeted public health interventions could have the most significant impact on reducing both obesity and heart disease rates.</p>
                         </div>
                     </div>
