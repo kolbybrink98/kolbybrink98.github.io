@@ -156,10 +156,16 @@
         .dashboard-image {
             flex: 1;
             min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
         }
         
         .dashboard-image img {
             width: 100%;
+            max-height: 400px;
+            object-fit: contain;
             border-radius: 5px;
             box-shadow: var(--shadow);
         }
