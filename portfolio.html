@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Kolby Brink</title>
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .resume-btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .resume-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .page-title {
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .page-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .dashboard-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .dashboard-header {
+            padding: 30px;
+            background-color: #f5f5ff;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dashboard-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .dashboard-content {
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .dashboard-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .dashboard-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+        }
+        
+        .dashboard-description {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .description-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .dashboard-text {
+            margin-bottom: 20px;
+        }
+        
+        .features-list {
+            margin-bottom: 20px;
+        }
+        
+        .features-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .insights-box {
+            background-color: #f5f5ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 5px 5px 0;
+            margin-top: 20px;
+        }
+        
+        .insights-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .dashboard-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                padding: 40px 0 20px;
+            }
+            
+            .page-title h1 {
+                font-size: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">K. Brink</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="portfolio.html" class="active">Portfolio</a>
+                    <a href="publications.html">Publications</a>
+                    <a href="certifications.html">Certifications</a>
+                </div>
+                <a href="resume.html" class="resume-btn">Resume</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Data Analytics Portfolio</h1>
+            <p>A collection of interactive Power BI dashboards designed to transform complex data into actionable insights.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Content -->
+    <section>
+        <div class="container">
+            <!-- Dashboard 1 -->
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">Dermatology Practice Performance Dashboard</h2>
+                    <div class="dashboard-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Healthcare Analytics</span>
+                        <span class="tag">Business Intelligence</span>
+                        <span class="tag">Financial Analysis</span>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-image">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/seqxed7zqxdfn7xnklwxs/dermatology-dashboard-picture.png" alt="Dermatology Dashboard">
+                    </div>
+                    <div class="dashboard-description">
+                        <h3 class="description-title">Project Overview</h3>
+                        <p class="dashboard-text">This comprehensive dashboard provides a complete view of a dermatology practice's performance metrics, allowing providers and administrators to track key indicators and identify areas for improvement.</p>
+                        
+                        <h3 class="description-title">Dashboard Features</h3>
+                        <ul class="features-list">
+                            <li>Revenue tracking with month-over-month comparison</li>
+                            <li>Provider productivity metrics with benchmarking</li>
+                            <li>Patient appointment analysis including no-show rates</li>
+                            <li>Procedure mix and profitability breakdown</li>
+                            <li>Insurance payer analysis and reimbursement tracking</li>
+                        </ul>
+                        
+                        <div class="insights-box">
+                            <h4 class="insights-title">Key Insights</h4>
+                            <p>Through this dashboard, the practice identified specific procedure types with higher profitability and optimized provider scheduling to increase overall revenue by 15% while reducing administrative costs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard 2 -->
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">Financial Performance Analysis Dashboard</h2>
+                    <div class="dashboard-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Financial Analytics</span>
+                        <span class="tag">Forecasting</span>
+                        <span class="tag">Executive Dashboard</span>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-image">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/wj54l7u1woai7srj51zuh/financial-dashboard-picture.png" alt="Financial Dashboard">
+                    </div>
+                    <div class="dashboard-description">
+                        <h3 class="description-title">Project Overview</h3>
+                        <p class="dashboard-text">This executive-level financial dashboard integrates data from multiple sources to provide a comprehensive view of organizational financial health, complete with predictive analytics and trend forecasting.</p>
+                        
+                        <h3 class="description-title">Dashboard Features</h3>
+                        <ul class="features-list">
+                            <li>Real-time P&L statement with drill-down capabilities</li>
+                            <li>Cash flow analysis with 6-month rolling forecast</li>
+                            <li>Budget variance analysis with automated alerts</li>
+                            <li>Revenue streams and expense category breakdown</li>
+                            <li>Custom KPI tracking with historical trending</li>
+                        </ul>
+                        
+                        <div class="insights-box">
+                            <h4 class="insights-title">Key Insights</h4>
+                            <p>The predictive modeling within this dashboard enabled leadership to identify potential revenue shortfalls 3 months in advance, allowing for proactive cost management strategies that preserved quarterly profit targets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard 3 -->
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">U.S. Health Metrics Dashboard</h2>
+                    <div class="dashboard-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Public Health</span>
+                        <span class="tag">Geographic Analysis</span>
+                        <span class="tag">Trend Analysis</span>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-image">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/mdpc28ioh0t7zh83stdfy/health-dashboard-picture.png" alt="Health Dashboard">
+                    </div>
+                    <div class="dashboard-description">
+                        <h3 class="description-title">Project Overview</h3>
+                        <p class="dashboard-text">This interactive dashboard visualizes obesity and heart disease trends across the United States, allowing for detailed geographic and demographic analysis of these critical public health concerns.</p>
+                        
+                        <h3 class="description-title">Dashboard Features</h3>
+                        <ul class="features-list">
+                            <li>State-by-state health metrics comparison</li>
+                            <li>County-level data visualization with color-coded mapping</li>
+                            <li>Demographic breakdowns (age, gender, income level)</li>
+                            <li>Correlation analysis between obesity and heart disease rates</li>
+                            <li>10-year trend analysis with interactive timeline</li>
+                        </ul>
+                        
+                        <div class="insights-box">
+                            <h4 class="insights-title">Key Insights</h4>
+                            <p>Analysis revealed strong correlations between socioeconomic factors and health outcomes, identifying specific regions where targeted public health interventions could have the most significant impact on reducing both obesity and heart disease rates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3 class="footer-title">Kolby Brink</h3>
+                    <p>Data Analytics and Visualization Consultant specializing in Power BI dashboards. Laboratory Technician at the Quantitative Analysis Research Core.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9H2V21H6V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 2H8C4.68629 2 2 4.68629 2 8V16C2 19.3137 4.68629 22 8 22H16C19.3137 22 22 19.3137 22 16V8C22 4.68629 19.3137 2 16 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 4.00002C22 4.00002 21.3 6.10002 20 7.40002C21.6 17.4 10.6 24.7 2 19C4.2 19.1 6.4 18.4 8 17C3 15.5 1.5 9.60002 4 5.00002C6.2 7.60002 9.5 9.10002 13 9.00002C12.5 6.50002 14 4.00002 17 3.00002C19.5 2.20002 21.6 3.00002 22 4.00002Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li>Email: your.email@example.com</li>
+                        <li>LinkedIn: linkedin.com/in/yourprofile</li>
+                        <li>GitHub: github.com/kolbybrink98</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Kolby Brink. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

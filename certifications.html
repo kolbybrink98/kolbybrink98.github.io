@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications - Kolby Brink</title>
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .resume-btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .resume-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .page-title {
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .page-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .certifications-container {
+            padding: 0 0 80px;
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .certification-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .certification-header {
+            padding: 30px 30px 20px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .certification-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 15px;
+        }
+        
+        .certification-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .certification-issuer {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .certification-date {
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .certification-content {
+            padding: 20px 30px 30px;
+        }
+        
+        .certification-description {
+            margin-bottom: 20px;
+        }
+        
+        .certification-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .certification-skill {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .certification-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: opacity 0.3s;
+        }
+        
+        .certification-link:hover {
+            opacity: 0.8;
+        }
+        
+        .link-icon {
+            margin-left: 5px;
+        }
+        
+        .certificate-type-title {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 50px 0 30px;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .certificate-type-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .certificate-type-title:first-of-type {
+            margin-top: 0;
+        }
+        
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                padding: 40px 0 20px;
+            }
+            
+            .page-title h1 {
+                font-size: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">K. Brink</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="publications.html">Publications</a>
+                    <a href="certifications.html" class="active">Certifications</a>
+                </div>
+                <a href="resume.html" class="resume-btn">Resume</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Professional Certifications</h1>
+            <p>Credentials and specialized training that demonstrate expertise in data analytics, visualization, and related technologies.</p>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications-container">
+        <div class="container">
+            <!-- Data Analytics Certifications -->
+            <h2 class="certificate-type-title">Data Analytics & Business Intelligence</h2>
+            <div class="certifications-grid">
+                <!-- Certification 1 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="Microsoft Logo" class="certification-logo">
+                        <h3 class="certification-title">Microsoft Certified: Power BI Data Analyst Associate</h3>
+                        <div class="certification-issuer">Microsoft</div>
+                        <div class="certification-date">Issued: May 2023 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Validates expertise in preparing, modeling, visualizing, and analyzing data using Power BI to drive business value.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Power BI</span>
+                            <span class="certification-skill">DAX</span>
+                            <span class="certification-skill">Data Modeling</span>
+                            <span class="certification-skill">Data Visualization</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="Tableau Logo" class="certification-logo">
+                        <h3 class="certification-title">Tableau Desktop Specialist</h3>
+                        <div class="certification-issuer">Tableau</div>
+                        <div class="certification-date">Issued: November 2022 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Demonstrates fundamental skills in Tableau Desktop to connect to data, perform analysis, and create visualizations and dashboards.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Tableau</span>
+                            <span class="certification-skill">Data Analysis</span>
+                            <span class="certification-skill">Data Visualization</span>
+                            <span class="certification-skill">Dashboard Design</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="Google Logo" class="certification-logo">
+                        <h3 class="certification-title">Google Data Analytics Professional Certificate</h3>
+                        <div class="certification-issuer">Google</div>
+                        <div class="certification-date">Issued: July 2022 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Comprehensive certification covering the entire data analysis process including data preparation, analysis, visualization, and sharing insights.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">SQL</span>
+                            <span class="certification-skill">R</span>
+                            <span class="certification-skill">Data Analysis</span>
+                            <span class="certification-skill">Data Visualization</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Programming & Technical Certifications -->
+            <h2 class="certificate-type-title">Programming & Technical Skills</h2>
+            <div class="certifications-grid">
+                <!-- Certification 4 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="DataCamp Logo" class="certification-logo">
+                        <h3 class="certification-title">Data Scientist with Python</h3>
+                        <div class="certification-issuer">DataCamp</div>
+                        <div class="certification-date">Issued: February 2023 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Comprehensive Python programming skills for data science including data manipulation, visualization, machine learning, and statistical analysis.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Python</span>
+                            <span class="certification-skill">Pandas</span>
+                            <span class="certification-skill">NumPy</span>
+                            <span class="certification-skill">Matplotlib</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certification 5 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="Microsoft Logo" class="certification-logo">
+                        <h3 class="certification-title">Microsoft Certified: Azure Data Fundamentals</h3>
+                        <div class="certification-issuer">Microsoft</div>
+                        <div class="certification-date">Issued: October 2022 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Validates foundational knowledge of core data concepts and how they are implemented using Microsoft Azure data services.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Azure</span>
+                            <span class="certification-skill">Data Storage</span>
+                            <span class="certification-skill">Data Processing</span>
+                            <span class="certification-skill">Data Analysis</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certification 6 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="IBM Logo" class="certification-logo">
+                        <h3 class="certification-title">IBM Data Science Professional Certificate</h3>
+                        <div class="certification-issuer">IBM</div>
+                        <div class="certification-date">Issued: April 2023 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Comprehensive data science program covering Python programming, data analysis, data visualization, machine learning, and applied data science methodology.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Python</span>
+                            <span class="certification-skill">SQL</span>
+                            <span class="certification-skill">Machine Learning</span>
+                            <span class="certification-skill">Data Science</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Professional Certifications -->
+            <h2 class="certificate-type-title">Specialized Training</h2>
+            <div class="certifications-grid">
+                <!-- Certification 7 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="Laboratory Safety Institute Logo" class="certification-logo">
+                        <h3 class="certification-title">Laboratory Safety & Procedures</h3>
+                        <div class="certification-issuer">Laboratory Safety Institute</div>
+                        <div class="certification-date">Issued: January 2023 • Expires: January 2025</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Comprehensive training on laboratory safety protocols, hazardous material handling, and emergency procedures for quantitative research laboratories.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Lab Safety</span>
+                            <span class="certification-skill">Chemical Handling</span>
+                            <span class="certification-skill">Equipment Operation</span>
+                            <span class="certification-skill">Protocol Compliance</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certification 8 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="Project Management Institute Logo" class="certification-logo">
+                        <h3 class="certification-title">Project Management Fundamentals</h3>
+                        <div class="certification-issuer">Project Management Institute</div>
+                        <div class="certification-date">Issued: September 2022 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Foundation in project management principles and methodologies, including planning, execution, monitoring, and closing of projects.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Project Planning</span>
+                            <span class="certification-skill">Risk Management</span>
+                            <span class="certification-skill">Stakeholder Communication</span>
+                            <span class="certification-skill">Resource Allocation</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Certification 9 -->
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <img src="/api/placeholder/180/60" alt="University of Nebraska Logo" class="certification-logo">
+                        <h3 class="certification-title">Advanced Scientific Writing</h3>
+                        <div class="certification-issuer">University of Nebraska</div>
+                        <div class="certification-date">Issued: March 2023 • No Expiration</div>
+                    </div>
+                    <div class="certification-content">
+                        <p class="certification-description">Specialized training in scientific manuscript preparation, technical writing, and effective communication of complex research findings.</p>
+                        <div class="certification-skills">
+                            <span class="certification-skill">Manuscript Writing</span>
+                            <span class="certification-skill">Technical Writing</span>
+                            <span class="certification-skill">Data Presentation</span>
+                            <span class="certification-skill">Research Methodology</span>
+                        </div>
+                        <a href="#" class="certification-link">
+                            Verify Credential
+                            <svg class="link-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3 class="footer-title">Kolby Brink</h3>
+                    <p>Data Analytics and Visualization Consultant specializing in Power BI dashboards. Laboratory Technician at the Quantitative Analysis Research Core.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9H2V21H6V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 2H8C4.68629 2 2 4.68629 2 8V16C2 19.3137 4.68629 22 8 22H16C19.3137 22 22 19.3137 22 16V8C22 4.68629 19.3137 2 16 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 4.00002C22 4.00002 21.3 6.10002 20 7.40002C21.6 17.4 10.6 24.7 2 19C4.2 19.1 6.4 18.4 8 17C3 15.5 1.5 9.60002 4 5.00002C6.2 7.60002 9.5 9.10002 13 9.00002C12.5 6.50002 14 4.00002 17 3.00002C19.5 2.20002 21.6 3.00002 22 4.00002Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li>Email: your.email@example.com</li>
+                        <li>LinkedIn: linkedin.com/in/yourprofile</li>
+                        <li>GitHub: github.com/kolbybrink98</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Kolby Brink. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
