@@ -1,0 +1,42 @@
+# Site settings
+title: Kolby Brink - Data Analytics Portfolio
+description: Data Analytics and Visualization Consultant with expertise in Power BI dashboard development.
+baseurl: "" # leave empty for GitHub user pages
+url: "https://kolbybrink98.github.io"
+author: Kolby Brink
+email: kolbybrink@gmail.com
+
+# Social media
+social:
+  linkedin: https://www.linkedin.com/in/kolby-brink-262262184/
+  twitter: https://x.com/BrinkKolby
+  github: https://github.com/kolbybrink98
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Default front matter for posts
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Kolby Brink"
+
+# Collections
+collections:
+  posts:
+    output: true
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .sass-cache/
+  - .jekyll-cache/
+  - .git/
+  - README.md

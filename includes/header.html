@@ -1,0 +1,16 @@
+<header>
+    <div class="container">
+        <nav>
+            <a href="{{ site.baseurl }}/" class="logo">K. Brink</a>
+            <div class="nav-links">
+                <a href="{{ site.baseurl }}/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+                <a href="{{ site.baseurl }}/portfolio.html" {% if page.url contains "portfolio" %}class="active"{% endif %}>Portfolio</a>
+                <a href="{{ site.baseurl }}/services.html" {% if page.url contains "services" %}class="active"{% endif %}>Services</a>
+                <a href="{{ site.baseurl }}/blog.html" {% if page.url contains "blog" %}class="active"{% endif %}>Blog</a>
+                <a href="{{ site.baseurl }}/publications.html" {% if page.url contains "publications" %}class="active"{% endif %}>Publications</a>
+                <a href="{{ site.baseurl }}/certifications.html" {% if page.url contains "certifications" %}class="active"{% endif %}>Certifications</a>
+            </div>
+            <a href="{{ site.baseurl }}/images/Kolby Brink Resume.pdf" target="_blank" class="resume-btn">Resume</a>
+        </nav>
+    </div>
+</header>
