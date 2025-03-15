@@ -3,28 +3,141 @@ layout: default
 title: Kolby Brink - Data Analytics Portfolio
 ---
 <style>
+    /* Global Styles */
+    :root {
+        --primary-color: #6c63ff;
+        --primary-dark: #5b52e0;
+        --secondary-color: #ff6b6b;
+        --accent-color: #00d2d3;
+        --text-color: #333;
+        --text-light: #666;
+        --bg-light: #f9f9fa;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Navigation Styles */
+    .site-header {
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .site-logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--text-color);
+    }
+    
+    .site-logo span {
+        color: var(--primary-color);
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+    
+    .nav-links a {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-color);
+        transition: color 0.3s;
+        position: relative;
+    }
+    
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
+    
+    .nav-links a.active {
+        color: var(--primary-color);
+    }
+    
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+    }
+    
+    .resume-btn {
+        background-color: var(--white);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    
+    .resume-btn:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+    }
+    
     /* Hero Section Styles */
     .hero-section {
         position: relative;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        padding: 120px 0 100px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        padding: 100px 0 80px;
         overflow: hidden;
-        border-radius: 0 0 30px 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .hero-shape {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23ffffff' opacity='.25'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23ffffff' opacity='.5'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+        opacity: 0.7;
+        z-index: 0;
     }
     
     .hero-background {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: 50%;
         height: 100%;
-        opacity: 0.03;
-        background-image: 
-            radial-gradient(circle at 25% 25%, var(--primary-color) 1%, transparent 5%),
-            radial-gradient(circle at 75% 75%, var(--primary-color) 1%, transparent 5%),
-            radial-gradient(circle at 50% 50%, var(--primary-color) 1%, transparent 8%);
-        background-size: 60px 60px;
+        background-color: rgba(108, 99, 255, 0.05);
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+        z-index: 0;
+    }
+    
+    .hero-dots {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        width: 180px;
+        height: 180px;
+        background-image: radial-gradient(var(--primary-color) 2px, transparent 2px);
+        background-size: 18px 18px;
+        opacity: 0.15;
         z-index: 0;
     }
     
@@ -55,6 +168,7 @@ title: Kolby Brink - Data Analytics Portfolio
         margin-bottom: 24px;
         letter-spacing: 0.5px;
         text-transform: uppercase;
+        border: 1px solid rgba(108, 99, 255, 0.3);
     }
     
     .hero-title {
@@ -63,7 +177,6 @@ title: Kolby Brink - Data Analytics Portfolio
         line-height: 1.1;
         margin-bottom: 24px;
         color: #333;
-        transition: all 0.3s ease;
     }
     
     .hero-title span {
@@ -86,7 +199,7 @@ title: Kolby Brink - Data Analytics Portfolio
     
     .hero-description {
         font-size: 18px;
-        color: #555;
+        color: var(--text-light);
         line-height: 1.7;
         margin-bottom: 32px;
     }
@@ -112,6 +225,7 @@ title: Kolby Brink - Data Analytics Portfolio
     }
     
     .primary-btn:hover {
+        background-color: var(--primary-dark);
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
     }
@@ -119,12 +233,12 @@ title: Kolby Brink - Data Analytics Portfolio
     .secondary-btn {
         background-color: transparent;
         color: var(--primary-color);
-        padding: 13px 32px;
+        padding: 12px 32px;
         border-radius: 30px;
         font-weight: 600;
         letter-spacing: 0.5px;
         transition: all 0.3s ease;
-        border: 1px solid var(--primary-color);
+        border: 2px solid var(--primary-color);
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -133,6 +247,7 @@ title: Kolby Brink - Data Analytics Portfolio
     .secondary-btn:hover {
         background-color: rgba(108, 99, 255, 0.05);
         transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
     }
     
     .hero-image-container {
@@ -142,13 +257,14 @@ title: Kolby Brink - Data Analytics Portfolio
     
     .hero-image {
         width: 320px;
-        height: 320px;
+        height: 350px;
         border-radius: 20px;
         object-fit: cover;
         position: relative;
         z-index: 2;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease;
+        border: 5px solid white;
     }
     
     .hero-image:hover {
@@ -159,18 +275,20 @@ title: Kolby Brink - Data Analytics Portfolio
     .hero-image-bg {
         position: absolute;
         width: 320px;
-        height: 320px;
+        height: 350px;
         background-color: var(--primary-color);
         border-radius: 20px;
         top: 20px;
         left: 20px;
         z-index: 1;
-        opacity: 0.2;
+        opacity: 0.3;
     }
     
     /* Services Section */
     .services-section {
         padding: 100px 0;
+        background-color: var(--white);
+        position: relative;
     }
     
     .section-header {
@@ -185,6 +303,10 @@ title: Kolby Brink - Data Analytics Portfolio
         font-size: 14px;
         letter-spacing: 1px;
         margin-bottom: 12px;
+        display: inline-block;
+        background: rgba(108, 99, 255, 0.1);
+        padding: 5px 15px;
+        border-radius: 20px;
     }
     
     .section-title {
@@ -211,7 +333,7 @@ title: Kolby Brink - Data Analytics Portfolio
     .section-description {
         max-width: 700px;
         margin: 0 auto;
-        color: #666;
+        color: var(--text-light);
         font-size: 17px;
         line-height: 1.7;
     }
@@ -232,16 +354,29 @@ title: Kolby Brink - Data Analytics Portfolio
         height: 100%;
         padding: 40px 30px;
         position: relative;
+        border: 1px solid #f0f0f0;
     }
     
     .service-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-color: rgba(108, 99, 255, 0.2);
     }
     
-    .service-card:hover .service-icon {
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 40px;
         background-color: var(--primary-color);
-        color: white;
+        border-radius: 0 0 10px 0;
+        transition: height 0.3s ease;
+    }
+    
+    .service-card:hover::before {
+        height: 60px;
     }
     
     .service-icon {
@@ -256,6 +391,12 @@ title: Kolby Brink - Data Analytics Portfolio
         font-size: 28px;
         margin-bottom: 24px;
         transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+        background-color: var(--primary-color);
+        color: white;
+        transform: rotateY(180deg);
     }
     
     .service-title {
@@ -275,9 +416,33 @@ title: Kolby Brink - Data Analytics Portfolio
     /* Featured Projects Section */
     .projects-section {
         padding: 100px 0;
-        background-color: #f7f9fc;
+        background-color: var(--bg-light);
         position: relative;
         overflow: hidden;
+    }
+    
+    .projects-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background-color: rgba(108, 99, 255, 0.05);
+        border-radius: 50%;
+        transform: translate(150px, -150px);
+    }
+    
+    .projects-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255, 107, 107, 0.05);
+        border-radius: 50%;
+        transform: translate(-100px, 100px);
     }
     
     .projects-grid {
@@ -285,6 +450,8 @@ title: Kolby Brink - Data Analytics Portfolio
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         gap: 30px;
         margin-top: 40px;
+        position: relative;
+        z-index: 1;
     }
     
     .project-card {
@@ -296,11 +463,13 @@ title: Kolby Brink - Data Analytics Portfolio
         height: 100%;
         display: flex;
         flex-direction: column;
+        border: 1px solid #f0f0f0;
     }
     
     .project-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-color: rgba(108, 99, 255, 0.2);
     }
     
     .project-image {
@@ -350,8 +519,8 @@ title: Kolby Brink - Data Analytics Portfolio
     }
     
     .project-tag {
-        background-color: #f0f0f0;
-        color: #555;
+        background-color: rgba(108, 99, 255, 0.1);
+        color: var(--primary-color);
         font-size: 13px;
         padding: 4px 12px;
         border-radius: 20px;
@@ -378,6 +547,22 @@ title: Kolby Brink - Data Analytics Portfolio
     /* Skills Section */
     .skills-section {
         padding: 100px 0;
+        background-color: var(--white);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .skills-section::before {
+        content: '';
+        position: absolute;
+        top: 100px;
+        right: 100px;
+        width: 200px;
+        height: 200px;
+        background-image: radial-gradient(var(--primary-color) 2px, transparent 2px);
+        background-size: 20px 20px;
+        opacity: 0.1;
+        z-index: 0;
     }
     
     .skills-container {
@@ -385,6 +570,8 @@ title: Kolby Brink - Data Analytics Portfolio
         flex-wrap: wrap;
         gap: 30px;
         margin-top: 40px;
+        position: relative;
+        z-index: 1;
     }
     
     .skills-column {
@@ -399,11 +586,13 @@ title: Kolby Brink - Data Analytics Portfolio
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         margin-bottom: 30px;
         transition: all 0.3s ease;
+        border: 1px solid #f0f0f0;
     }
     
     .skills-category:hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        border-color: rgba(108, 99, 255, 0.2);
     }
     
     .skills-category-title {
@@ -433,12 +622,13 @@ title: Kolby Brink - Data Analytics Portfolio
     }
     
     .skill-tag {
-        background-color: #f0f0f0;
-        color: #555;
+        background-color: rgba(108, 99, 255, 0.1);
+        color: var(--primary-color);
         font-size: 14px;
         padding: 8px 16px;
         border-radius: 20px;
         transition: all 0.3s ease;
+        border: 1px solid transparent;
     }
     
     .skill-tag:hover {
@@ -451,8 +641,21 @@ title: Kolby Brink - Data Analytics Portfolio
     /* CTA Section */
     .cta-section {
         padding: 80px 0;
-        background-color: #f7f9fc;
+        background-color: var(--bg-light);
         text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236c63ff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 1;
     }
     
     .cta-container {
@@ -464,6 +667,17 @@ title: Kolby Brink - Data Analytics Portfolio
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         position: relative;
         overflow: hidden;
+        border: 1px solid #f0f0f0;
+    }
+    
+    .cta-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     }
     
     .cta-title {
@@ -510,6 +724,11 @@ title: Kolby Brink - Data Analytics Portfolio
         .hero-image-container {
             flex: 0 0 auto;
         }
+        
+        .hero-image-bg {
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
     
     @media (max-width: 767px) {
@@ -544,9 +763,27 @@ title: Kolby Brink - Data Analytics Portfolio
     }
 </style>
 
+<!-- Custom Navigation (will override default) -->
+<header class="site-header">
+    <div class="header-container">
+        <a href="index.html" class="site-logo">Kolby <span>Brink</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="publications.html">Publications</a>
+            <a href="certifications.html">Certifications</a>
+        </div>
+        <a href="assets/images/Kolby Brink Resume.pdf" target="_blank" class="resume-btn">Resume</a>
+    </div>
+</header>
+
 <!-- Hero Section -->
 <section class="hero-section">
+    <div class="hero-shape"></div>
     <div class="hero-background"></div>
+    <div class="hero-dots"></div>
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-badge">Data Visualization Specialist</div>
@@ -580,7 +817,7 @@ title: Kolby Brink - Data Analytics Portfolio
 <section class="services-section">
     <div class="container">
         <div class="section-header">
-            <h6 class="section-subtitle">What I Offer</h6>
+            <span class="section-subtitle">What I Offer</span>
             <h2 class="section-title">My Services</h2>
             <p class="section-description">I provide specialized data analytics and visualization services to help organizations transform complex data into actionable insights and compelling visuals.</p>
         </div>
@@ -628,7 +865,7 @@ title: Kolby Brink - Data Analytics Portfolio
 <section class="projects-section">
     <div class="container">
         <div class="section-header">
-            <h6 class="section-subtitle">My Portfolio</h6>
+            <span class="section-subtitle">My Portfolio</span>
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-description">A selection of my recent data visualization and analytics projects showcasing my expertise in creating insightful dashboards.</p>
         </div>
@@ -710,7 +947,7 @@ title: Kolby Brink - Data Analytics Portfolio
 <section class="skills-section">
     <div class="container">
         <div class="section-header">
-            <h6 class="section-subtitle">My Expertise</h6>
+            <span class="section-subtitle">My Expertise</span>
             <h2 class="section-title">Skills & Tools</h2>
             <p class="section-description">A comprehensive collection of technical skills, tools, and technologies I utilize to deliver high-quality data analytics solutions.</p>
         </div>
