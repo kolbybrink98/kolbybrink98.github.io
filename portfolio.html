@@ -7,10 +7,12 @@
     <style>
         :root {
             --primary-color: #6c63ff;
+            --secondary-color: #4f46e5;
             --text-color: #333;
             --light-bg: #f9f9f9;
             --white: #ffffff;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
         * {
@@ -92,23 +94,431 @@
             color: var(--white);
         }
         
-        .page-title {
-            padding: 60px 0 30px;
+        .portfolio-hero {
+            padding: 60px 0;
             text-align: center;
             position: relative;
+            background-color: #f0f0f0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/portfolio-bg.jpg');
+            background-position: center;
+            background-size: cover;
         }
         
-        .page-title h1 {
+        .portfolio-hero h1 {
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 20px;
         }
         
-        .page-title p {
+        .portfolio-hero p {
             font-size: 18px;
             color: #666;
             max-width: 700px;
             margin: 0 auto;
+        }
+        
+        /* Portfolio Filter */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .filter-btn {
+            background-color: var(--white);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 350px;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .portfolio-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .portfolio-category {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .portfolio-link svg {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-link:hover {
+            opacity: 0.8;
+        }
+        
+        .portfolio-link:hover svg {
+            transform: translateX(3px);
+        }
+        
+        /* Featured Project */
+        .featured-project {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+        
+        .featured-project-inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .featured-project-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+        }
+        
+        .featured-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-project-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-label {
+            display: inline-block;
+            background-color: rgba(108, 99, 255, 0.1);
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 15px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .featured-project-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .featured-project-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .featured-project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .featured-tag {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            width: fit-content;
+        }
+        
+        .project-btn svg {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .project-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .project-btn:hover svg {
+            transform: translateX(3px);
+        }
+        
+        /* Project Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 50px 0;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        
+        .close-modal:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 400px;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-details {
+            padding: 30px;
+        }
+        
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-tag {
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .modal-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .modal-features {
+            margin-bottom: 20px;
+        }
+        
+        .modal-features h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .features-list {
+            list-style-type: none;
+        }
+        
+        .features-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .modal-insights {
+            background-color: #f5f5ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 5px 5px 0;
+            margin-top: 20px;
+        }
+        
+        .modal-insights h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* "View More" Section */
+        .view-more {
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
+        
+        .load-more-btn svg {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .load-more-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .load-more-btn:hover svg {
+            transform: translateX(3px);
+        }
+        
+        /* Call to Action */
+        .portfolio-cta {
+            padding: 80px 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        .portfolio-cta h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .portfolio-cta p {
+            font-size: 18px;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
         
         footer {
@@ -192,6 +602,46 @@
             font-size: 14px;
             color: #aaa;
         }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .featured-project-inner {
+                flex-direction: column;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        /* Animation for items appearing */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
     </style>
 </head>
 <body>
@@ -203,6 +653,8 @@
                 <div class="nav-links">
                     <a href="index.html">Home</a>
                     <a href="portfolio.html" class="active">Portfolio</a>
+                    <a href="services.html">Services</a>
+                    <a href="blog.html">Blog</a>
                     <a href="publications.html">Publications</a>
                     <a href="certifications.html">Certifications</a>
                 </div>
@@ -211,126 +663,345 @@
         </div>
     </header>
 
-    <!-- Page Title -->
-    <section class="page-title">
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
         <div class="container">
             <h1>Data Analytics Portfolio</h1>
-            <p>A collection of interactive Power BI dashboards designed to transform complex data into actionable insights.</p>
+            <p>A collection of interactive Power BI dashboards and data visualization projects designed to transform complex data into actionable insights.</p>
         </div>
     </section>
 
-    <!-- Portfolio Content -->
+    <!-- Portfolio Filter -->
     <section>
         <div class="container">
-            <!-- Dashboard 1 -->
-            <div style="background-color: white; border-radius: 10px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
-                <div style="padding: 30px; background-color: #f5f5ff; border-bottom: 1px solid #eee;">
-                    <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">Dermatology Practice Performance Dashboard</h2>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Power BI</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Healthcare Analytics</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Business Intelligence</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Financial Analysis</span>
-                    </div>
-                </div>
-                <div style="padding: 30px; display: flex; flex-wrap: wrap; gap: 30px;">
-                    <div style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5;">
-                        <img src="images/dermatology-dashboard.png" alt="Dermatology Dashboard" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    </div>
-                    <div style="flex: 1; min-width: 300px;">
-                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Project Overview</h3>
-                        <p style="margin-bottom: 20px;">This comprehensive dashboard provides a complete view of a dermatology practice's performance metrics, allowing providers and administrators to track key indicators and identify areas for improvement.</p>
-                        
-                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Dashboard Features</h3>
-                        <ul style="margin-bottom: 20px; list-style-position: inside;">
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Revenue tracking with month-over-month comparison</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Provider productivity metrics with benchmarking</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Patient appointment analysis including no-show rates</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Procedure mix and profitability breakdown</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Insurance payer analysis and reimbursement tracking</li>
-                        </ul>
-                        
-                        <div style="background-color: #f5f5ff; border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 5px 5px 0; margin-top: 20px;">
-                            <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Key Insights</h4>
-                            <p>Through this dashboard, the practice identified specific procedure types with higher profitability and optimized provider scheduling to increase overall revenue by 15% while reducing administrative costs.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+                <button class="filter-btn" data-filter="financial">Financial</button>
+                <button class="filter-btn" data-filter="public-health">Public Health</button>
+                <button class="filter-btn" data-filter="business">Business Intelligence</button>
             </div>
-            
-            <!-- Dashboard 2 -->
-            <div style="background-color: white; border-radius: 10px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
-                <div style="padding: 30px; background-color: #f5f5ff; border-bottom: 1px solid #eee;">
-                    <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">Financial Performance Analysis Dashboard</h2>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Power BI</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Financial Analytics</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Forecasting</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Executive Dashboard</span>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section>
+        <div class="container">
+            <div class="featured-project">
+                <div class="featured-project-inner">
+                    <div class="featured-project-image">
+                        <img src="images/dermatology-dashboard.png" alt="Dermatology Practice Dashboard">
                     </div>
-                </div>
-                <div style="padding: 30px; display: flex; flex-wrap: wrap; gap: 30px;">
-                    <div style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5;">
-                        <img src="images/financial-dashboard.png" alt="Financial Dashboard" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    </div>
-                    <div style="flex: 1; min-width: 300px;">
-                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Project Overview</h3>
-                        <p style="margin-bottom: 20px;">This executive-level financial dashboard integrates data from multiple sources to provide a comprehensive view of organizational financial health, complete with predictive analytics and trend forecasting.</p>
-                        
-                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Dashboard Features</h3>
-                        <ul style="margin-bottom: 20px; list-style-position: inside;">
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Real-time P&L statement with drill-down capabilities</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Cash flow analysis with 6-month rolling forecast</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Budget variance analysis with automated alerts</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Revenue streams and expense category breakdown</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Custom KPI tracking with historical trending</li>
-                        </ul>
-                        
-                        <div style="background-color: #f5f5ff; border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 5px 5px 0; margin-top: 20px;">
-                            <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Key Insights</h4>
-                            <p>The predictive modeling within this dashboard enabled leadership to identify potential revenue shortfalls 3 months in advance, allowing for proactive cost management strategies that preserved quarterly profit targets.</p>
+                    <div class="featured-project-content">
+                        <span class="featured-label">Featured Project</span>
+                        <h2 class="featured-project-title">Dermatology Practice Performance Dashboard</h2>
+                        <p class="featured-project-description">A comprehensive dashboard that provides a complete view of a dermatology practice's performance metrics, enabling providers and administrators to track key indicators and identify areas for improvement.</p>
+                        <div class="featured-project-tags">
+                            <span class="featured-tag">Power BI</span>
+                            <span class="featured-tag">Healthcare Analytics</span>
+                            <span class="featured-tag">Business Intelligence</span>
+                            <span class="featured-tag">Financial Analysis</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Dashboard 3 -->
-            <div style="background-color: white; border-radius: 10px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow: hidden;">
-                <div style="padding: 30px; background-color: #f5f5ff; border-bottom: 1px solid #eee;">
-                    <h2 style="font-size: 26px; font-weight: 700; margin-bottom: 10px;">U.S. Health Metrics Dashboard</h2>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px;">
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Power BI</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Public Health</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Geographic Analysis</span>
-                        <span style="background-color: #f0f0f0; padding: 5px 12px; border-radius: 20px; font-size: 14px; color: #555;">Trend Analysis</span>
-                    </div>
-                </div>
-                <div style="padding: 30px; display: flex; flex-wrap: wrap; gap: 30px;">
-                    <div style="flex: 1; min-width: 300px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5;">
-                        <img src="images/health-dashboard.png" alt="Health Dashboard" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    </div>
-                    <div style="flex: 1; min-width: 300px;">
-                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Project Overview</h3>
-                        <p style="margin-bottom: 20px;">This interactive dashboard visualizes obesity and heart disease trends across the United States, allowing for detailed geographic and demographic analysis of these critical public health concerns.</p>
-                        
-                        <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--primary-color);">Dashboard Features</h3>
-                        <ul style="margin-bottom: 20px; list-style-position: inside;">
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">State-by-state health metrics comparison</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">County-level data visualization with color-coded mapping</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Demographic breakdowns (age, gender, income level)</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">Correlation analysis between obesity and heart disease rates</li>
-                            <li style="margin-bottom: 10px; position: relative; padding-left: 25px;">10-year trend analysis with interactive timeline</li>
-                        </ul>
-                        
-                        <div style="background-color: #f5f5ff; border-left: 4px solid var(--primary-color); padding: 20px; border-radius: 0 5px 5px 0; margin-top: 20px;">
-                            <h4 style="font-weight: 600; margin-bottom: 10px; color: var(--primary-color);">Key Insights</h4>
-                            <p>Analysis revealed strong correlations between socioeconomic factors and health outcomes, identifying specific regions where targeted public health interventions could have the most significant impact on reducing both obesity and heart disease rates.</p>
-                        </div>
+                        <a href="#" class="project-btn" onclick="openModal('dermatology-modal')">
+                            View Project Details
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Portfolio Grid -->
+    <section>
+        <div class="container">
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-item" data-category="financial">
+                    <img src="images/financial-dashboard.png" alt="Financial Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Financial Performance Analysis</h3>
+                        <p class="portfolio-category">Financial Analytics</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('financial-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="portfolio-item" data-category="public-health">
+                    <img src="images/health-dashboard.png" alt="Health Metrics Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">U.S. Health Metrics Dashboard</h3>
+                        <p class="portfolio-category">Public Health Analysis</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('health-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="portfolio-item" data-category="business">
+                    <img src="images/sales-dashboard.jpg" alt="Sales Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Retail Sales Performance</h3>
+                        <p class="portfolio-category">Business Intelligence</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('retail-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="portfolio-item" data-category="healthcare">
+                    <img src="images/patient-dashboard.jpg" alt="Patient Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Patient Satisfaction Metrics</h3>
+                        <p class="portfolio-category">Healthcare Analytics</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('patient-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="portfolio-item" data-category="financial">
+                    <img src="images/budget-dashboard.jpg" alt="Budget Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Budget Variance Analysis</h3>
+                        <p class="portfolio-category">Financial Planning</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('budget-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="portfolio-item" data-category="public-health">
+                    <img src="images/covid-dashboard.jpg" alt="COVID-19 Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">COVID-19 Data Tracking</h3>
+                        <p class="portfolio-category">Public Health</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('covid-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="portfolio-item" data-category="business">
+                    <img src="images/marketing-dashboard.jpg" alt="Marketing Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Marketing Campaign Performance</h3>
+                        <p class="portfolio-category">Marketing Analytics</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('marketing-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="portfolio-item" data-category="healthcare">
+                    <img src="images/inventory-dashboard.jpg" alt="Inventory Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Medical Inventory Management</h3>
+                        <p class="portfolio-category">Healthcare Operations</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('inventory-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="portfolio-item" data-category="business">
+                    <img src="images/employee-dashboard.jpg" alt="Employee Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Employee Performance Metrics</h3>
+                        <p class="portfolio-category">HR Analytics</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('employee-modal')">
+                            View Details
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- View More Button -->
+    <section class="view-more">
+        <button class="load-more-btn">
+            Load More Projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 12L12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="portfolio-cta">
+        <div class="container">
+            <h2>Need a Custom Dashboard for Your Business?</h2>
+            <p>Let's discuss how data visualization can help you make better decisions and achieve your business goals.</p>
+            <a href="services.html" class="project-btn">
+                Explore My Services
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <!-- Dermatology Dashboard Modal -->
+    <div id="dermatology-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('dermatology-modal')">✕</div>
+            <div class="modal-image">
+                <img src="images/dermatology-dashboard.png" alt="Dermatology Practice Dashboard">
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title">Dermatology Practice Performance Dashboard</h2>
+                <div class="modal-tags">
+                    <span class="modal-tag">Power BI</span>
+                    <span class="modal-tag">Healthcare Analytics</span>
+                    <span class="modal-tag">Business Intelligence</span>
+                    <span class="modal-tag">Financial Analysis</span>
+                </div>
+                <div class="modal-description">
+                    <p>This comprehensive dashboard provides a complete view of a dermatology practice's performance metrics, allowing providers and administrators to track key indicators and identify areas for improvement. The interactive visualizations make it easy to drill down into specific data points and explore trends over time.</p>
+                </div>
+                <div class="modal-features">
+                    <h3>Dashboard Features</h3>
+                    <ul class="features-list">
+                        <li>Revenue tracking with month-over-month comparison</li>
+                        <li>Provider productivity metrics with benchmarking</li>
+                        <li>Patient appointment analysis including no-show rates</li>
+                        <li>Procedure mix and profitability breakdown</li>
+                        <li>Insurance payer analysis and reimbursement tracking</li>
+                    </ul>
+                </div>
+                <div class="modal-insights">
+                    <h3>Key Insights</h3>
+                    <p>Through this dashboard, the practice identified specific procedure types with higher profitability and optimized provider scheduling to increase overall revenue by 15% while reducing administrative costs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Financial Dashboard Modal -->
+    <div id="financial-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('financial-modal')">✕</div>
+            <div class="modal-image">
+                <img src="images/financial-dashboard.png" alt="Financial Performance Dashboard">
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title">Financial Performance Analysis Dashboard</h2>
+                <div class="modal-tags">
+                    <span class="modal-tag">Power BI</span>
+                    <span class="modal-tag">Financial Analytics</span>
+                    <span class="modal-tag">Forecasting</span>
+                    <span class="modal-tag">Executive Dashboard</span>
+                </div>
+                <div class="modal-description">
+                    <p>This executive-level financial dashboard integrates data from multiple sources to provide a comprehensive view of organizational financial health, complete with predictive analytics and trend forecasting. Decision-makers can easily monitor KPIs and drill down into specific areas of interest.</p>
+                </div>
+                <div class="modal-features">
+                    <h3>Dashboard Features</h3>
+                    <ul class="features-list">
+                        <li>Real-time P&L statement with drill-down capabilities</li>
+                        <li>Cash flow analysis with 6-month rolling forecast</li>
+                        <li>Budget variance analysis with automated alerts</li>
+                        <li>Revenue streams and expense category breakdown</li>
+                        <li>Custom KPI tracking with historical trending</li>
+                    </ul>
+                </div>
+                <div class="modal-insights">
+                    <h3>Key Insights</h3>
+                    <p>The predictive modeling within this dashboard enabled leadership to identify potential revenue shortfalls 3 months in advance, allowing for proactive cost management strategies that preserved quarterly profit targets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Health Dashboard Modal -->
+    <div id="health-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('health-modal')">✕</div>
+            <div class="modal-image">
+                <img src="images/health-dashboard.png" alt="Health Metrics Dashboard">
+            </div>
+            <div class="modal-details">
+                <h2 class="modal-title">U.S. Health Metrics Dashboard</h2>
+                <div class="modal-tags">
+                    <span class="modal-tag">Power BI</span>
+                    <span class="modal-tag">Public Health</span>
+                    <span class="modal-tag">Geographic Analysis</span>
+                    <span class="modal-tag">Trend Analysis</span>
+                </div>
+                <div class="modal-description">
+                    <p>This interactive dashboard visualizes obesity and heart disease trends across the United States, allowing for detailed geographic and demographic analysis of these critical public health concerns. Users can explore data by state, county, demographic factors, and time period.</p>
+                </div>
+                <div class="modal-features">
+                    <h3>Dashboard Features</h3>
+                    <ul class="features-list">
+                        <li>State-by-state health metrics comparison</li>
+                        <li>County-level data visualization with color-coded mapping</li>
+                        <li>Demographic breakdowns (age, gender, income level)</li>
+                        <li>Correlation analysis between obesity and heart disease rates</li>
+                        <li>10-year trend analysis with interactive timeline</li>
+                    </ul>
+                </div>
+                <div class="modal-insights">
+                    <h3>Key Insights</h3>
+                    <p>Analysis revealed strong correlations between socioeconomic factors and health outcomes, identifying specific regions where targeted public health interventions could have the most significant impact on reducing both obesity and heart disease rates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Additional modals for the other projects would go here -->
 
     <!-- Footer -->
     <footer>
@@ -361,6 +1032,8 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="publications.html">Publications</a></li>
                         <li><a href="certifications.html">Certifications</a></li>
                         <li><a href="images/Kolby Brink Resume.pdf" target="_blank">Resume</a></li>
@@ -380,5 +1053,84 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for portfolio filtering and modals -->
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            // Add animation classes on load
+            setTimeout(function() {
+                portfolioItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('animate-in');
+                    }, index * 100);
+                });
+            }, 300);
+            
+            // Filter buttons click event
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide items based on filter
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.classList.add('animate-in');
+                            }, 100);
+                        } else {
+                            if (item.getAttribute('data-category') === filterValue) {
+                                item.style.display = 'block';
+                                setTimeout(() => {
+                                    item.classList.add('animate-in');
+                                }, 100);
+                            } else {
+                                item.style.display = 'none';
+                                item.classList.remove('animate-in');
+                            }
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Load More Projects button functionality
+        document.querySelector('.load-more-btn').addEventListener('click', function() {
+            alert('More projects coming soon!');
+        });
+    </script>
 </body>
 </html>
