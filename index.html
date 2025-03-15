@@ -1,9 +1,14 @@
+---
+layout: none
+title: Kolby Brink - Data Analytics Portfolio
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolby Brink - Data Analytics Portfolio</title>
+    <title>{{ site.title }}</title>
+    {% include head-styles.html %}
     <style>
         /* Base Styles */
         :root {
@@ -724,89 +729,6 @@
             flex-wrap: wrap;
         }
         
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: var(--white);
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #444;
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 14px;
-            color: #aaa;
-        }
-        
         /* Media Queries */
         @media (max-width: 991px) {
             .hero-container {
@@ -874,16 +796,16 @@
 <!-- Custom Navigation Header -->
 <header class="site-header">
     <div class="header-container">
-        <a href="index.html" class="site-logo">Kolby <span>Brink</span></a>
+        <a href="{{ site.baseurl }}/" class="site-logo">Kolby <span>Brink</span></a>
         <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="services.html">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="publications.html">Publications</a>
-            <a href="certifications.html">Certifications</a>
+            <a href="{{ site.baseurl }}/" class="active">Home</a>
+            <a href="{{ site.baseurl }}/portfolio.html">Portfolio</a>
+            <a href="{{ site.baseurl }}/services.html">Services</a>
+            <a href="{{ site.baseurl }}/blog.html">Blog</a>
+            <a href="{{ site.baseurl }}/publications.html">Publications</a>
+            <a href="{{ site.baseurl }}/certifications.html">Certifications</a>
         </div>
-        <a href="images/Kolby Brink Resume.pdf" target="_blank" class="resume-btn">Resume</a>
+        <a href="{{ site.baseurl }}/images/Kolby Brink Resume.pdf" target="_blank" class="resume-btn">Resume</a>
     </div>
 </header>
 
@@ -898,7 +820,7 @@
             <h1 class="hero-title">I'm <span>Kolby Brink</span></h1>
             <p class="hero-description">Data Analytics and Visualization Consultant with expertise in Power BI dashboard development. Full-time Laboratory Technician for the Quantitative Analysis Research Core.</p>
             <div class="hero-cta">
-                <a href="portfolio.html" class="primary-btn">
+                <a href="{{ site.baseurl }}/portfolio.html" class="primary-btn">
                     View My Work
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -915,7 +837,7 @@
             </div>
         </div>
         <div class="hero-image-container">
-            <img src="images/headshot.jpg" alt="Kolby Brink" class="hero-image">
+            <img src="{{ site.baseurl }}/images/headshot.jpg" alt="Kolby Brink" class="hero-image">
             <div class="hero-image-bg"></div>
         </div>
     </div>
@@ -982,7 +904,7 @@
             <!-- Project 1 -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/dermatology-dashboard.png" alt="Dermatology Dashboard">
+                    <img src="{{ site.baseurl }}/images/dermatology-dashboard.png" alt="Dermatology Dashboard">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Sales Performance Dashboard</h3>
@@ -992,7 +914,7 @@
                         <span class="project-tag">Sales Analytics</span>
                         <span class="project-tag">Data Visualization</span>
                     </div>
-                    <a href="portfolio.html" class="project-link">
+                    <a href="{{ site.baseurl }}/portfolio.html" class="project-link">
                         View Details
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1005,7 +927,7 @@
             <!-- Project 2 -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/financial-dashboard.png" alt="Financial Dashboard">
+                    <img src="{{ site.baseurl }}/images/financial-dashboard.png" alt="Financial Dashboard">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Financial Performance Analysis</h3>
@@ -1015,7 +937,7 @@
                         <span class="project-tag">Financial Analytics</span>
                         <span class="project-tag">Forecasting</span>
                     </div>
-                    <a href="portfolio.html" class="project-link">
+                    <a href="{{ site.baseurl }}/portfolio.html" class="project-link">
                         View Details
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1028,7 +950,7 @@
             <!-- Project 3 -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/health-dashboard.png" alt="Health Dashboard">
+                    <img src="{{ site.baseurl }}/images/health-dashboard.png" alt="Health Dashboard">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Health Dashboard</h3>
@@ -1038,7 +960,7 @@
                         <span class="project-tag">Health Analytics</span>
                         <span class="project-tag">Geographic Analysis</span>
                     </div>
-                    <a href="portfolio.html" class="project-link">
+                    <a href="{{ site.baseurl }}/portfolio.html" class="project-link">
                         View Details
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1120,14 +1042,14 @@
             <h2 class="cta-title">Let's Work Together</h2>
             <p class="cta-description">Interested in transforming your data into actionable insights? I'm available for consulting, dashboard development, and data analysis projects.</p>
             <div class="cta-buttons">
-                <a href="mailto:kolbybrink@gmail.com" class="primary-btn">
+                <a href="mailto:{{ site.email }}" class="primary-btn">
                     Contact Me
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
-                <a href="portfolio.html" class="secondary-btn">
+                <a href="{{ site.baseurl }}/portfolio.html" class="secondary-btn">
                     View Portfolio
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1140,55 +1062,7 @@
 </section>
 
 <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-col">
-                <h3 class="footer-title">Kolby Brink</h3>
-                <p>Data Analytics and Visualization Consultant specializing in Power BI dashboards. Laboratory Technician at the Quantitative Analysis Research Core.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/kolby-brink-262262184/" target="_blank" class="social-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6 9H2V21H6V9Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="https://x.com/BrinkKolby" target="_blank" class="social-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 4L20.6842 5.2632L19.3684 6.5263L18.0526 7.7895L16.7368 9.0526L15.4211 10.3158L14.1053 11.5789L12.7895 12.8421L11.4737 14.1053L10.1579 15.3684L8.8421 16.6316L7.5263 17.8947L6.2105 19.1579L4.8947 20.4211L3.5789 21.6842L2.2632 22.9474L1 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 4L4.5 5.5L6 7L7.5 8.5L9 10L10.5 11.5L12 13L13.5 14.5L15 16L16.5 17.5L18 19L19.5 20.5L21 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 12H8L10 10L14 14L16 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="certifications.html">Certifications</a></li>
-                    <li><a href="images/Kolby Brink Resume.pdf" target="_blank">Resume</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3 class="footer-title">Contact</h3>
-                <ul class="footer-links">
-                    <li>Email: kolbybrink@gmail.com</li>
-                    <li>LinkedIn: <a href="https://www.linkedin.com/in/kolby-brink-262262184/" target="_blank">linkedin.com/in/kolby-brink-262262184</a></li>
-                    <li>GitHub: github.com/kolbybrink98</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Kolby Brink. All rights reserved.
-        </div>
-    </div>
-</footer>
+{% include footer.html %}
 
 </body>
 </html>
