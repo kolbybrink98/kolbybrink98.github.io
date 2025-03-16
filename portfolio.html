@@ -752,7 +752,7 @@
                 
                 <!-- Project 3 -->
                 <div class="portfolio-item" data-category="business">
-                    <img src="images/sales-dashboard.jpg" alt="Sales Dashboard">
+                    <img src="images/profit-dashboard.png" alt="Profit Dashboard">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Retail Sales Performance</h3>
                         <p class="portfolio-category">Business Intelligence</p>
@@ -767,12 +767,12 @@
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="portfolio-item" data-category="healthcare">
-                    <img src="images/patient-dashboard.jpg" alt="Patient Dashboard">
+                <div class="portfolio-item" data-category="business">
+                    <img src="images/business-dashboard.png" alt="Business Dashboard">
                     <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Patient Satisfaction Metrics</h3>
-                        <p class="portfolio-category">Healthcare Analytics</p>
-                        <a href="#" class="portfolio-link" onclick="openModal('patient-modal')">
+                        <h3 class="portfolio-title">Business Satisfaction Metrics</h3>
+                        <p class="portfolio-category">Product Analytics</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('product-modal')">
                             View Details
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -951,6 +951,114 @@
             </div>
         </div>
     </div>
+    <!-- Sales Performance Dashboard Modal -->
+<div id="sales-modal" class="modal">
+    <div class="modal-content">
+        <div class="close-modal" onclick="closeModal('sales-modal')">✕</div>
+        <div class="modal-image">
+            <img src="images/profit-dashboard.png" alt="Sales Performance Dashboard">
+        </div>
+        <div class="modal-details">
+            <h2 class="modal-title">Sales Performance & Profit Analysis Dashboard</h2>
+            <div class="modal-tags">
+                <span class="modal-tag">Power BI</span>
+                <span class="modal-tag">Sales Analytics</span>
+                <span class="modal-tag">Financial Analysis</span>
+                <span class="modal-tag">Geographic Insights</span>
+            </div>
+            <div class="modal-description">
+                <p>This comprehensive sales dashboard provides a multi-dimensional view of sales performance and profitability across different categories, customers, and geographic regions. The interactive visualizations allow stakeholders to identify profit trends, customer purchasing patterns, and geographic distribution of sales to make data-driven decisions.</p>
+            </div>
+            <div class="modal-features">
+                <h3>Dashboard Features</h3>
+                <ul class="features-list">
+                    <li>Key performance indicators tracking total profit, quantity, and order volume</li>
+                    <li>Time-series analysis of order volume and profit by month</li>
+                    <li>Detailed breakdown of profit contribution by product category and sub-category</li>
+                    <li>Customer profitability analysis with spend vs. profit visualization</li>
+                    <li>Geographic profit distribution across states</li>
+                    <li>Interactive filters for time period customization</li>
+                </ul>
+            </div>
+            <div class="modal-insights">
+                <h3>Key Insights</h3>
+                <p>Analysis revealed that Electronics and Clothing generate the highest profit margins, with significant seasonal trends in November-March. The visualization also identified high-value customer segments for targeted marketing, and showed geographic profit concentration in key states like Madhya Pradesh and Maharashtra, enabling more strategic regional expansion decisions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Customer Analysis Dashboard Modal -->
+<div id="customer-analysis-modal" class="modal">
+    <div class="modal-content">
+        <div class="close-modal" onclick="closeModal('customer-analysis-modal')">✕</div>
+        <div class="modal-image">
+            <img src="images/business-dashboard.png" alt="Customer Analysis Dashboard">
+        </div>
+        <div class="modal-details">
+            <h2 class="modal-title">Customer Analysis Detail Dashboard</h2>
+            <div class="modal-tags">
+                <span class="modal-tag">Power BI</span>
+                <span class="modal-tag">Customer Analytics</span>
+                <span class="modal-tag">International Sales</span>
+                <span class="modal-tag">Product Performance</span>
+            </div>
+            <div class="modal-description">
+                <p>This comprehensive customer analysis dashboard provides a detailed view of international sales performance across different product lines, geographic regions, and time periods. It enables business stakeholders to track year-over-year growth, identify top-performing products, and understand geographic sales distribution to optimize marketing and sales strategies.</p>
+            </div>
+            <div class="modal-features">
+                <h3>Dashboard Features</h3>
+                <ul class="features-list">
+                    <li>Interactive filters for Quarter and Country selection</li>
+                    <li>Key performance indicators displaying Sum of Sales (119M), Sum of Profit (17M), and Profit Percentage (335.6%)</li>
+                    <li>Geographic visualization of customer distribution across countries</li>
+                    <li>Detailed product performance table with current and year-over-year comparisons</li>
+                    <li>Profit margin vs. Total Sales analysis to identify high-value product segments</li>
+                    <li>Product performance comparison showing Total Sales and Last Year's Sales side-by-side</li>
+                </ul>
+            </div>
+            <div class="modal-insights">
+                <h3>Key Insights</h3>
+                <p>Analysis revealed exceptional growth in the Carretera product line (4612% YoY profit growth) despite being the lowest in total sales volume. Additionally, the dashboard highlighted significant market opportunities in both North America and Europe, particularly for the Paseo product which generates the highest total sales and profits across all regions. This data-driven approach enabled targeted expansion strategies and product promotion decisions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sports Camp Analytics Dashboard Modal -->
+<div id="sports-camp-modal" class="modal">
+    <div class="modal-content">
+        <div class="close-modal" onclick="closeModal('sports-camp-modal')">✕</div>
+        <div class="modal-image">
+            <img src="images/sports-club-dashboard.png" alt="Sports Camp Analytics Dashboard">
+        </div>
+        <div class="modal-details">
+            <h2 class="modal-title">Sports Camp Financial Analytics Dashboard</h2>
+            <div class="modal-tags">
+                <span class="modal-tag">Power BI</span>
+                <span class="modal-tag">Financial Analysis</span>
+                <span class="modal-tag">Registration Tracking</span>
+                <span class="modal-tag">Program Management</span>
+            </div>
+            <div class="modal-description">
+                <p>This comprehensive dashboard provides sports camp administrators with a detailed financial overview of their programs. The visualization tracks registration numbers, fee collections, and profitability across different camp types and programs, enabling data-driven decisions about which programs to expand or modify based on their financial performance.</p>
+            </div>
+            <div class="modal-features">
+                <h3>Dashboard Features</h3>
+                <ul class="features-list">
+                    <li>At-a-glance KPIs showing most profitable camp, total net revenue, and collected fees</li>
+                    <li>Comparative analysis of net income across all camp programs</li>
+                    <li>Year-over-year comparison of registrations, fees, and revenue</li>
+                    <li>Detailed financial breakdown with number of registrants, transaction amounts, and net revenue</li>
+                    <li>Demographic analysis showing performance by grade/age groups</li>
+                    <li>Interactive filtering by year and multiple selection options</li>
+                </ul>
+            </div>
+            <div class="modal-insights">
+                <h3>Key Insights</h3>
+                <p>Analysis revealed that Summer Beach Programs generate significantly higher profitability than other camp types, with the top program generating over $17.8K in net income. While registration numbers decreased from 1,153 in 2023 to 879 in 2024, the revenue remained relatively stable, indicating more efficient operations or higher per-camper fees. The dashboard also highlighted which age groups (6th-12th grade) contributed most significantly to the organization's revenue, allowing for more targeted marketing and program development.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer>
