@@ -120,7 +120,37 @@
             background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/services-bg.jpg');
             background-position: center;
             background-size: cover;
-            text-align: center;
+        }
+        
+        .services-hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .services-hero-content {
+            flex: 2;
+            max-width: 650px;
+        }
+        
+        .services-hero-logo {
+            flex: 1;
+            max-width: 350px;
+            min-width: 250px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .services-hero-logo p {
+            color: #888;
+            font-style: italic;
         }
         
         .services-hero h1 {
@@ -128,13 +158,26 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--text-color);
+            text-align: left;
         }
         
         .services-hero p {
             font-size: 18px;
             color: #555;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .company-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .company-info h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
         }
         
         .cta-button {
@@ -550,9 +593,24 @@
     <!-- Hero Section -->
     <section class="services-hero">
         <div class="container">
-            <h1>Data Analytics & Visualization Services</h1>
-            <p>Transform your data into actionable insights with custom Power BI dashboards and comprehensive analytics solutions.</p>
-            <a href="#contact" class="cta-button">Get a Free Consultation</a>
+            <div class="services-hero-container">
+                <div class="services-hero-content">
+                    <h1>Data Analytics & Visualization Services</h1>
+                    <p>Transform your data into actionable insights with custom Power BI dashboards and comprehensive analytics solutions.</p>
+                    
+                    <div class="company-info">
+                        <h3>About Cutting Edge Analytics</h3>
+                        <p>I founded Cutting Edge Analytics in 2024 to specialize in creating custom data visualization solutions that help businesses make more informed decisions. We transform complex data into clear, actionable insights through innovative dashboard design and advanced analytics.</p>
+                        <p>Our mission is to make data accessible and meaningful for organizations of all sizes, empowering them to identify trends, uncover opportunities, and solve complex problems.</p>
+                    </div>
+                    
+                    <a href="#contact" class="cta-button">Get a Free Consultation</a>
+                </div>
+                
+                <div class="services-hero-logo">
+                    <img src="images/ce-analytics-logo.png" alt="Health Metrics Dashboard">
+                </div>
+            </div>
         </div>
     </section>
 
