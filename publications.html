@@ -1,32 +1,4 @@
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const publications = document.querySelectorAll('.publication');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Get filter type
-                const filterType = this.getAttribute('data-filter');
-                
-                // Show/hide publications based on filter
-                publications.forEach(pub => {
-                    if (filterType === 'all') {
-                        pub.style.display = 'block';
-                    } else {
-                        const pubType = pub.getAttribute('data-type');
-                        pub.style.display = pubType === filterType ? 'block' : 'none';
-                    }
-                });
-            });
-        });
-    });
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -380,7 +352,6 @@
                 <a href="index.html">Home</a>
                 <a href="portfolio.html">Portfolio</a>
                 <a href="services.html">Services</a>
-                <a href="blog.html">Blog</a>
                 <a href="publications.html" class="active">Publications</a>
                 <a href="certifications.html">Certifications</a>
             </div>
@@ -541,161 +512,6 @@
             </div>
         </div>
         
-        <div class="publication" data-type="journal">
-            <h2 class="publication-title">NONAN GaitPrint: An IMU gait database of healthy young adults</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>2023</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>Nature: Scientific Data, 10, 867</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Wiles, T. M., Mangalam, M., Sommerfeld, J. H., Kim, S. K., Brink, K. J., Charles, A. E., Grunkemeyer, A. A., Manifrenti, M. K., Mastorakis, S., Stergiou, N., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-links">
-                <a href="#" class="pub-link link-doi">
-                    <span class="link-icon">🔗</span>
-                    <span>View DOI</span>
-                </a>
-                <a href="#" class="pub-link link-pdf">
-                    <span class="link-icon">📄</span>
-                    <span>View PDF</span>
-                </a>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Gait Analysis</span>
-                <span class="publication-category">IMU Data</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="journal">
-            <h2 class="publication-title">Nonlinear Analyses Distinguish Load Carriage Dynamics in Walking and Standing: A Systematic Review</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>2022</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>Journal of Applied Biomechanics, 1-14</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J., McKenzie, Kari L., & Likens A. D.</span>
-                </div>
-            </div>
-            <div class="publication-links">
-                <a href="#" class="pub-link link-doi">
-                    <span class="link-icon">🔗</span>
-                    <span>View DOI</span>
-                </a>
-                <a href="#" class="pub-link link-pdf">
-                    <span class="link-icon">📄</span>
-                    <span>View PDF</span>
-                </a>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Load Carriage</span>
-                <span class="publication-category">Nonlinear Analysis</span>
-                <span class="publication-category">Systematic Review</span>
-            </div>
-        </div>
-        
-        <!-- In Preparation and Under Review Articles -->
-        <div class="publication" data-type="journal">
-            <h2 class="publication-title">10 Simple Rules for Bayesian Statistics</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>In Preparation</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>To be Submitted in PLOS Computational Biology</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Wiles, T. M., Mangalam, M., Sommerfeld, J. H., Kim, S., Brink, K. J., Charles, A. E., Grunkemeyer, A.A., Kalaitzi Manifrenti, M., Stergiou, N., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Bayesian Statistics</span>
-                <span class="publication-category">Statistical Methods</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="journal">
-            <h2 class="publication-title">A Novel Method for Identifying Fatigue and Injury in Soldiers During Loaded Walking</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>In Preparation</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>To be Submitted in Applied Ergonomics</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J., McKenzie, K. L., Straight, C.R., O'Fallon, K.S., Kim, S., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Load Carriage</span>
-                <span class="publication-category">Military</span>
-                <span class="publication-category">Ergonomics</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="journal">
-            <h2 class="publication-title">Higher Entropy in Movements May Promote Enhanced Upper Limb Motor Precision</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>Under Review</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>Human Movement Science</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J., Wiles, T. M., Stergiou, N., & Likens A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Motor Precision</span>
-                <span class="publication-category">Entropy</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="journal">
-            <h2 class="publication-title">NONAN GaitPrint: An IMU gait database of middle-aged adults</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>In Preparation</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>To be Submitted in Nature: Scientific Data</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Wiles, T. M., Mangalam, M., Sommerfeld, J. H., Kim, S. K., Brink, K. J., Charles, A. E., Grunkemeyer, A. A., Manifrenti, M. K., Mastorakis, S., Stergiou, N., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Gait Analysis</span>
-                <span class="publication-category">IMU Data</span>
-            </div>
-        </div>
-        
         <!-- Book Chapters -->
         <div class="publication" data-type="book">
             <h2 class="publication-title">Recurrence Quantification Analysis</h2>
@@ -768,74 +584,6 @@
             </div>
         </div>
         
-        <div class="publication" data-type="conference-podium">
-            <h2 class="publication-title">A Novel Biomarker for Detecting Fatigue in Soldiers During Loaded Walks</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>June 2024</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>University of Nebraska at Omaha Human Movement Variability Conference. Omaha, NE</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J., McKenzie, K. L., Straight, C. R., O'Fallon, K. S., Kim, S.K., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Oral Presentation</span>
-                <span class="publication-category">Load Carriage</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="conference-podium">
-            <h2 class="publication-title">Irregular Metronomes Alter Bimanual Coordination Dynamics</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>May 2022</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>North American Society for the Psychology of Sport and Physical Activity Conference. Waikoloa, Hawaii</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J., Stergiou N. S., Sommerfeld, J. H., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Oral Presentation</span>
-                <span class="publication-category">Motor Coordination</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="conference-podium">
-            <h2 class="publication-title">Irregular Metronomes Alter Bimanual Coordination Dynamics</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>May 2022</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>Human Movement Variability and Great Plains Conference. Omaha, NE</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J., Stergiou N. S., Sommerfeld, J. H., & Likens, A. D.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Oral Presentation</span>
-                <span class="publication-category">Motor Coordination</span>
-            </div>
-        </div>
-        
-        <!-- More Conference Podium Presentations - add the rest here -->
-        
         <!-- Conference Poster Presentations -->
         <div class="publication" data-type="conference-poster">
             <h2 class="publication-title">Higher Complexity in Movements Indicate Better Sensorimotor Precision</h2>
@@ -880,101 +628,10 @@
                 <span class="publication-category">Load Carriage</span>
             </div>
         </div>
-        
-        <div class="publication" data-type="conference-poster">
-            <h2 class="publication-title">Higher Complexity in Movements Indicate Better Sensorimotor Precision</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>June 2024</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>University of Nebraska at Omaha Human Movement Variability Conference. Omaha, NE</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Brink, K. J. & Likens A.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Poster</span>
-                <span class="publication-category">Complexity</span>
-            </div>
-        </div>
-        
-        <!-- Add more conference posters -->
-
-        <!-- Workshops and Colloquia -->
-        <div class="publication" data-type="workshop">
-            <h2 class="publication-title">Recurrence Quantification Analysis in Movement Science</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>August 2024</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>Canadian Society of Biomechanics, Edmonton, AB</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Likens, A.D., Brink K.J., Kim S.K., Wiles T.M.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Workshop</span>
-                <span class="publication-category">Recurrence Analysis</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="workshop">
-            <h2 class="publication-title">Recurrence Quantification Analysis in Movement Science</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>August 2024</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>48th Annual American Society of Biomechanics, Madison, WI</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Likens, A.D., Brink K.J., Kim S.K., Wiles T.M.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Workshop</span>
-                <span class="publication-category">Recurrence Analysis</span>
-            </div>
-        </div>
-        
-        <div class="publication" data-type="workshop">
-            <h2 class="publication-title">Basic Fractal Analysis in Movement Science</h2>
-            <div class="publication-meta">
-                <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>August 2023</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">📚</span>
-                    <span>47th Annual American Society of Biomechanics, Knoxville, Tennessee</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-icon">👥</span>
-                    <span>Likens, A.D., Brink K.J., Kalaitzi Manifrenti M., Sommerfeld J.</span>
-                </div>
-            </div>
-            <div class="publication-categories">
-                <span class="publication-category">Workshop</span>
-                <span class="publication-category">Fractal Analysis</span>
-            </div>
-        </div>
     </div>
 </section>
 
-<!-- Footer x-->
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="footer-content">
@@ -1003,6 +660,7 @@
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="services.html">Services</a></li>
                     <li><a href="publications.html">Publications</a></li>
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="images/Kolby Brink Resume.pdf" target="_blank">Resume</a></li>
@@ -1022,5 +680,36 @@
         </div>
     </div>
 </footer>
+
+<!-- JavaScript for filtering publications -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const publications = document.querySelectorAll('.publication');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter type
+                const filterType = this.getAttribute('data-filter');
+                
+                // Show/hide publications based on filter
+                publications.forEach(pub => {
+                    if (filterType === 'all') {
+                        pub.style.display = 'block';
+                    } else {
+                        const pubType = pub.getAttribute('data-type');
+                        pub.style.display = pubType === filterType ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
 </body>
 </html>
