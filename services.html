@@ -570,6 +570,86 @@
                 gap: 30px;
             }
         }
+
+        .services-hero {
+    padding: 80px 0;
+    background-color: #f0f0f0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('images/services-bg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.services-hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.services-hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.services-hero-logo {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+}
+
+.services-hero-logo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.services-hero h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.services-hero p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.company-info {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.company-info h3 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 991px) {
+    .services-hero-container {
+        flex-direction: column-reverse;
+    }
+    
+    .services-hero-content, 
+    .services-hero-logo {
+        max-width: 100%;
+    }
+    
+    .services-hero-logo img {
+        max-width: 350px;
+    }
+    
+    .services-hero h1 {
+        white-space: normal;
+    }
+}
     </style>
 </head>
 <body>
@@ -591,28 +671,29 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="services-hero">
-        <div class="container">
-            <div class="services-hero-container">
-                <div class="services-hero-content">
-                    <h1>Data Analytics & Visualization Services</h1>
-                    <p>Transform your data into actionable insights with custom Power BI dashboards and comprehensive analytics solutions.</p>
-                    
-                    <div class="company-info">
-                        <h3>About Cutting Edge Analytics</h3>
-                        <p>I founded Cutting Edge Analytics in 2024 to specialize in creating custom data visualization solutions that help businesses make more informed decisions. We transform complex data into clear, actionable insights through innovative dashboard design and advanced analytics.</p>
-                        <p>Our mission is to make data accessible and meaningful for organizations of all sizes, empowering them to identify trends, uncover opportunities, and solve complex problems.</p>
-                    </div>
-                    
-                    <a href="#contact" class="cta-button">Get a Free Consultation</a>
+<!-- Replace your hero section with this HTML -->
+<section class="services-hero">
+    <div class="container">
+        <div class="services-hero-container">
+            <div class="services-hero-content">
+                <h1>Data Analytics & Visualization Services</h1>
+                <p>Transform your data into actionable insights with custom Power BI dashboards and comprehensive analytics solutions.</p>
+                
+                <div class="company-info">
+                    <h3>About Cutting Edge Analytics</h3>
+                    <p>I founded Cutting Edge Analytics in 2024 to specialize in creating custom data visualization solutions that help businesses make more informed decisions. We transform complex data into clear, actionable insights through innovative dashboard design and advanced analytics.</p>
+                    <p>Our mission is to make data accessible and meaningful for organizations of all sizes, empowering them to identify trends, uncover opportunities, and solve complex problems.</p>
                 </div>
                 
-                <div class="services-hero-logo">
-                    <img src="images/ce-analytics-logo.png" alt="Health Metrics Dashboard">
-                </div>
+                <a href="#contact" class="cta-button">Get a Free Consultation</a>
+            </div>
+            
+            <div class="services-hero-logo">
+                <img src="images/ce-analytics-logo.png" alt="Cutting Edge Analytics Logo">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Services Grid -->
     <section class="services-section">
