@@ -666,7 +666,7 @@
     <section class="portfolio-hero">
         <div class="container">
             <h1>Data Analytics Portfolio</h1>
-            <p>A collection of interactive Power BI dashboards and data visualization projects designed to transform complex data into actionable insights.</p>
+            <p>A comprehensive collection of interactive dashboards, data analysis projects, and machine learning applications designed to transform complex data into actionable insights.</p>
         </div>
     </section>
 
@@ -675,11 +675,20 @@
         <div class="container">
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="healthcare">Healthcare</button>
-                <button class="filter-btn" data-filter="financial">Financial</button>
-                <button class="filter-btn" data-filter="public-health">Public Health</button>
-                <button class="filter-btn" data-filter="business">Business Intelligence</button>
+                <button class="filter-btn" data-filter="dashboards">Dashboards</button>
+                <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
+                <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
             </div>
+        </div>
+    </section>
+
+    <!-- Power BI / Tableau Dashboards Section -->
+    <section>
+        <div class="container">
+            <h2 style="font-size: 32px; font-weight: 700; margin: 60px 0 40px; text-align: center; color: var(--primary-color); position: relative;">
+                Power BI / Tableau Dashboards
+                <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 70px; height: 4px; background-color: var(--primary-color); border-radius: 2px; display: block;"></span>
+            </h2>
         </div>
     </section>
 
@@ -700,6 +709,7 @@
                             <span class="featured-tag">Healthcare Analytics</span>
                             <span class="featured-tag">Business Intelligence</span>
                             <span class="featured-tag">Financial Analysis</span>
+                            <span class="featured-tag" style="display: none;" data-category="dashboards">dashboards</span>
                         </div>
                         <a href="#" class="project-btn" onclick="openModal('dermatology-modal')">
                             View Project Details
@@ -719,7 +729,7 @@
         <div class="container">
             <div class="portfolio-grid">
                 <!-- Project 1 -->
-                <div class="portfolio-item" data-category="financial">
+                <div class="portfolio-item" data-category="dashboards">
                     <img src="images/financial-dashboard.png" alt="Financial Dashboard">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Financial Performance Analysis</h3>
@@ -735,7 +745,7 @@
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="portfolio-item" data-category="public-health">
+                <div class="portfolio-item" data-category="dashboards">
                     <img src="images/health-dashboard.png" alt="Health Metrics Dashboard">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">U.S. Health Metrics Dashboard</h3>
@@ -751,7 +761,7 @@
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="portfolio-item" data-category="business">
+                <div class="portfolio-item" data-category="dashboards">
                     <img src="images/profit-dashboard.png" alt="Profit Dashboard">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Retail Sales Performance</h3>
@@ -767,7 +777,7 @@
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="portfolio-item" data-category="business">
+                <div class="portfolio-item" data-category="dashboards">
                     <img src="images/business-dashboard.png" alt="Business Dashboard">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Business Performance Metrics</h3>
@@ -783,7 +793,7 @@
                 </div>
                 
                 <!-- Project 5 -->
-                <div class="portfolio-item" data-category="Business Intelligence">
+                <div class="portfolio-item" data-category="dashboards">
                     <img src="images/sports-club-dashboard.png" alt="Budget Dashboard">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Budget Variance Analysis</h3>
@@ -799,18 +809,99 @@
                 </div>
                 
                 <!-- Project 6 -->
-                <div class="portfolio-item" data-category="Business Intelligence">
-                    <img src="images/microsoft-example-dashboard.png" alt="Placeholder Dashboard">
+                <div class="portfolio-item" data-category="dashboards">
+                    <img src="images/tableau-business-dashboard.png" alt="Tableau Business Dashboard">
                     <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Forecast Analysis</h3>
-                        <p class="portfolio-category">Business Intelligence</p>
-                        <a href="#" class="portfolio-link" onclick="openModal('example-modal')">
+                        <h3 class="portfolio-title">Multi-Domain Business Analytics Dashboard</h3>
+                        <p class="portfolio-category">Tableau • Business Intelligence</p>
+                        <a href="#" class="portfolio-link" onclick="openModal('tableau-modal')">
                             View Details
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Extraction, Cleaning, and Analysis Examples Section -->
+    <section>
+        <div class="container">
+            <h2 style="font-size: 32px; font-weight: 700; margin: 60px 0 40px; text-align: center; color: var(--primary-color); position: relative;">
+                Data Extraction, Cleaning, and Analysis Examples
+                <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 70px; height: 4px; background-color: var(--primary-color); border-radius: 2px; display: block;"></span>
+            </h2>
+            
+            <div class="portfolio-grid">
+                <!-- Python Analysis Project -->
+                <div class="portfolio-item" data-category="data-analysis" style="height: 280px;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 600;">
+                        📊 Python Analysis
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Comprehensive Data Analysis with Python</h3>
+                        <p class="portfolio-category">Python • Pandas • Data Cleaning</p>
+                        <a href="python_project_example.html" target="_blank" class="portfolio-link">
+                            View Analysis
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Additional Data Analysis Projects Placeholder -->
+                <div class="portfolio-item" data-category="data-analysis" style="height: 280px; opacity: 0.6;">
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600; text-align: center;">
+                        🔄 More Projects<br>Coming Soon
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Additional Analysis Projects</h3>
+                        <p class="portfolio-category">In Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Learning Examples Section -->
+    <section>
+        <div class="container">
+            <h2 style="font-size: 32px; font-weight: 700; margin: 60px 0 40px; text-align: center; color: var(--primary-color); position: relative;">
+                Machine Learning Examples
+                <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 70px; height: 4px; background-color: var(--primary-color); border-radius: 2px; display: block;"></span>
+            </h2>
+            
+            <div class="portfolio-grid">
+                <!-- Machine Learning Placeholder -->
+                <div class="portfolio-item" data-category="machine-learning" style="height: 280px; opacity: 0.6;">
+                    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 600; text-align: center;">
+                        🤖 ML Projects<br>Coming Soon
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Machine Learning Applications</h3>
+                        <p class="portfolio-category">Predictive Modeling • Classification • Regression</p>
+                        <div style="color: #fff; font-size: 14px; margin-top: 10px; opacity: 0.9;">
+                            Advanced machine learning projects currently in development
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="machine-learning" style="height: 280px; opacity: 0.6;">
+                    <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 18px; font-weight: 600; text-align: center;">
+                        📈 Deep Learning<br>Coming Soon
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Deep Learning Projects</h3>
+                        <p class="portfolio-category">Neural Networks • TensorFlow • PyTorch</p>
+                        <div style="color: #fff; font-size: 14px; margin-top: 10px; opacity: 0.9;">
+                            Neural network applications in development
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1060,46 +1151,51 @@
     </div>
 </div>
 
-<!-- Example Dashboard Modal -->
-<div id="example-modal" class="modal">
-    <div class="modal-content">
-        <div class="close-modal" onclick="closeModal('example-modal')">✕</div>
-        <div class="modal-image">
-            <img src="images/microsoft-example-dashboard.png" alt="Exapmle Dashboard">
-        </div>
-        <div class="modal-details">
-            <h2 class="modal-title">Forecasting and Sales Dashboard</h2>
-            <div class="modal-tags">
-                <span class="modal-tag">Power BI</span>
-                <span class="modal-tag">Financial Analysis</span>
-                <span class="modal-tag">Customer Analytics</span>
-                <span class="modal-tag">Product Performance</span>
+    <!-- Tableau Business Dashboard Modal -->
+    <div id="tableau-modal" class="modal">
+        <div class="modal-content">
+            <div class="close-modal" onclick="closeModal('tableau-modal')">✕</div>
+            <div class="modal-image">
+                <img src="images/tableau-business-dashboard.png" alt="Tableau Business Dashboard">
             </div>
-            <div class="modal-description">
-                <p>This dashboard is an example dashboard taken from Microsoft and is currently just a placeholder for future dashboards.</p>
-            </div>
-            <div class="modal-features">
-                <h3>Dashboard Features</h3>
-                <ul class="features-list">
-                    <li>This dashboard was created by Microsoft and is currently just a placeholder</li>
-                </ul>
-            </div>
-            <div class="modal-insights">
-                <h3>Key Insights</h3>
-                <p>This dashboard was created by Microsoft and is currently just a placeholder</p>
+            <div class="modal-details">
+                <h2 class="modal-title">Multi-Domain Business Analytics Dashboard</h2>
+                <div class="modal-tags">
+                    <span class="modal-tag">Tableau</span>
+                    <span class="modal-tag">Business Intelligence</span>
+                    <span class="modal-tag">Geographic Analysis</span>
+                    <span class="modal-tag">Health Analytics</span>
+                    <span class="modal-tag">Financial Metrics</span>
+                </div>
+                <div class="modal-description">
+                    <p>A comprehensive Tableau dashboard integrating multiple business domains including health analytics, geographic performance mapping, and financial metrics. This multi-faceted dashboard demonstrates advanced data visualization techniques combining public health data, sales performance, and geographic analysis to provide stakeholders with a complete business intelligence overview.</p>
+                </div>
+                <div class="modal-features">
+                    <h3>Dashboard Features</h3>
+                    <ul class="features-list">
+                        <li>Heart disease and health metrics tracking with trend analysis</li>
+                        <li>Geographic heat mapping for regional performance insights</li>
+                        <li>Profit margin analysis with bubble chart visualizations</li>
+                        <li>Sales performance tracking with forecasting capabilities</li>
+                        <li>Interactive filtering and cross-dashboard connectivity</li>
+                        <li>Multi-domain KPI monitoring and alerting</li>
+                    </ul>
+                </div>
+                <div class="modal-insights">
+                    <h3>Key Insights</h3>
+                    <p>This integrated approach to business intelligence demonstrates the power of combining disparate data sources to create comprehensive analytical insights. The dashboard effectively bridges public health data with business metrics, providing unique perspectives on market opportunities and operational efficiency.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
+    
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
                     <h3 class="footer-title">Kolby Brink</h3>
-                    <p>Data Analytics and Visualization Consultant specializing in Power BI dashboards. Laboratory Technician at the Quantitative Analysis Research Core.</p>
+                    <p>Data Analytics and Visualization Consultant specializing in Power BI dashboards. Data Analyst at the Quantitative Analysis Research Core.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/kolby-brink-262262184/" target="_blank" class="social-icon">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1219,6 +1315,56 @@
         // Load More Projects button functionality
         document.querySelector('.load-more-btn').addEventListener('click', function() {
             alert('More projects coming soon!');
+        });
+        
+        // Portfolio filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const featuredProject = document.querySelector('.featured-project');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(button => button.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Show/hide portfolio items
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                    
+                    // Show/hide featured project (it's a dashboard)
+                    if (filter === 'all' || filter === 'dashboards') {
+                        featuredProject.style.display = 'block';
+                        setTimeout(() => {
+                            featuredProject.style.opacity = '1';
+                            featuredProject.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        featuredProject.style.opacity = '0';
+                        featuredProject.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            featuredProject.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
         });
     </script>
 </body>
